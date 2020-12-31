@@ -1,0 +1,28 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: nodejs-deployment 
+spec: 
+  replicas: 2 
+  selector: 
+    matchLabels: 
+      app: nodejs 
+  template: 
+    metadata: 
+      labels: 
+        app: nodejs 
+    spec: 
+      containers: 
+      - name: nodongo 
+        image: charithwdocker/node-git-sync 
+        ports: 
+        - containerPort: 3000
+        volumeMounts:
+        - mountPath: app/yaml
+          name: yaml-volume2
+        
+      volumes:
+      - name: yaml-volume2
+        hostPath:
+          path: /home/ubuntu/D:/Workspace/Practises/Kubernetes
+          type: Directory
