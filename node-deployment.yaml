@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: nodongo 
-        image: charithwdocker/node-git-sync 
+        image: charithwdocker/node-git-sync:1.1
         ports: 
         - containerPort: 3000
         volumeMounts:
